@@ -1,0 +1,39 @@
+# Build output
+bin/
+obj/
+[Bb]uild/
+AppPackages/
+BundleArtifacts/
+*.pdb
+
+# Installers / release binaries (publish via GitHub Releases instead)
+*.exe
+*.msi
+*.msix
+*.appx
+*.zip
+dist/
+
+# IDE / user-specific
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userprefs
+*.DotSettings.user
+
+# Local data, logs, secrets
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.pfx
+*.snk
+.env
+appsettings.*.local.json
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store

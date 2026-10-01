@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C08FAF50-73E7-4EF6-912D-38CAD72620ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{AA4E5BE2-B2C6-45F6-93B1-21D5841EFB8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClipVault.UI", "src\UI\ClipVault.UI\ClipVault.UI.csproj", "{61A493C5-0B51-4715-9E95-9A7E114EAFE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{68BA5437-2E0C-456B-8D9C-E6BA63D09DD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClipVault.Core", "src\Core\ClipVault.Core\ClipVault.Core.csproj", "{97642463-C7C0-48D2-B2E8-12DD26514176}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{515E5ABC-5FDD-49DB-A370-BCADA698983D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClipVault.Infrastructure", "src\Infrastructure\ClipVault.Infrastructure\ClipVault.Infrastructure.csproj", "{C81E24CC-A5D2-4FDD-8697-13465DBC13CE}"
+EndProject
+Project("{C716776D-20D0-4E80-A4D8-68F0DDB32D51}") = "ClipVault.Package", "src\UI\ClipVault.Package\ClipVault.Package.wapproj", "{7E9B412A-8C9F-4318-9730-89127814529D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61A493C5-0B51-4715-9E95-9A7E114EAFE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61A493C5-0B51-4715-9E95-9A7E114EAFE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61A493C5-0B51-4715-9E95-9A7E114EAFE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61A493C5-0B51-4715-9E95-9A7E114EAFE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97642463-C7C0-48D2-B2E8-12DD26514176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97642463-C7C0-48D2-B2E8-12DD26514176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97642463-C7C0-48D2-B2E8-12DD26514176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97642463-C7C0-48D2-B2E8-12DD26514176}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C81E24CC-A5D2-4FDD-8697-13465DBC13CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C81E24CC-A5D2-4FDD-8697-13465DBC13CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C81E24CC-A5D2-4FDD-8697-13465DBC13CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C81E24CC-A5D2-4FDD-8697-13465DBC13CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E9B412A-8C9F-4318-9730-89127814529D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E9B412A-8C9F-4318-9730-89127814529D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E9B412A-8C9F-4318-9730-89127814529D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E9B412A-8C9F-4318-9730-89127814529D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AA4E5BE2-B2C6-45F6-93B1-21D5841EFB8D} = {C08FAF50-73E7-4EF6-912D-38CAD72620ED}
+		{61A493C5-0B51-4715-9E95-9A7E114EAFE9} = {AA4E5BE2-B2C6-45F6-93B1-21D5841EFB8D}
+		{68BA5437-2E0C-456B-8D9C-E6BA63D09DD7} = {C08FAF50-73E7-4EF6-912D-38CAD72620ED}
+		{97642463-C7C0-48D2-B2E8-12DD26514176} = {68BA5437-2E0C-456B-8D9C-E6BA63D09DD7}
+		{515E5ABC-5FDD-49DB-A370-BCADA698983D} = {C08FAF50-73E7-4EF6-912D-38CAD72620ED}
+		{C81E24CC-A5D2-4FDD-8697-13465DBC13CE} = {515E5ABC-5FDD-49DB-A370-BCADA698983D}
+		{7E9B412A-8C9F-4318-9730-89127814529D} = {AA4E5BE2-B2C6-45F6-93B1-21D5841EFB8D}
+	EndGlobalSection
+EndGlobal
