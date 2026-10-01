@@ -1,0 +1,73 @@
+name: Build & Release
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Build
+        run: dotnet build src/UI/ClipVault.UI/ClipVault.UI.csproj -c Release
+
+      - name: Resolve version
+        id: version
+        shell: pwsh
+        run: |
+          if ($env:GITHUB_REF -like 'refs/tags/v*') {
+            $v = $env:GITHUB_REF_NAME.TrimStart('v')
+          } else {
+            [xml]$x = Get-Content src/UI/ClipVault.UI/ClipVault.UI.csproj -Raw
+            $v = ($x.Project.PropertyGroup.Version | Select-Object -First 1).Trim()
+          }
+          "value=$v" >> $env:GITHUB_OUTPUT
+
+      - name: Install Inno Setup
+        shell: pwsh
+        run: |
+          if (-not (Test-Path "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe")) {
+            choco install innosetup -y --no-progress
+          }
+
+      - name: Build installer
+        shell: pwsh
+        run: ./installer/build-setup.ps1 -Version ${{ steps.version.outputs.value }}
+
+      - name: Package portable zip
+        shell: pwsh
+        run: |
+          $publish = 'src/UI/ClipVault.UI/bin/Release/net8.0-windows/win-x64/publish'
+          Compress-Archive -Path "$publish/*" -Exclude *.pdb -DestinationPath "dist/installer/ClipVault-Portable-${{ steps.version.outputs.value }}-win-x64.zip"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ClipVault-${{ steps.version.outputs.value }}
+          path: |
+            dist/installer/ClipVault-Setup-*.exe
+            dist/installer/ClipVault-Portable-*.zip
+            dist/installer/release.json
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ClipVault ${{ steps.version.outputs.value }}
+          generate_release_notes: true
+          make_latest: true
+          files: |
+            dist/installer/ClipVault-Setup-${{ steps.version.outputs.value }}.exe
+            dist/installer/ClipVault-Portable-${{ steps.version.outputs.value }}-win-x64.zip
+            dist/installer/release.json
